@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package grpc_api;
+
+option go_package="github.com/gna69/go-fib/internal/api";
+
+service Fibonacci {
+  rpc GetFibSlice(Segment) returns (FibonacciSlice) {}
+}
+
+message Segment {
+  uint64 start = 1;
+  uint64 stop = 2;
+}
+
+message FibonacciSlice {
+  repeated uint64 numbers = 1;
+}
